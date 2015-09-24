@@ -1,0 +1,30 @@
+/*!
+ * Start Bootstrap - 2 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.portfolio-item {
+   margin-bottom: 35px;
+   display: block;
+   max-width: 100%;
+   height: auto;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.cubitos {
+	height: 150px;
+	font-size: 50px;
+	color: white;
+	font-weight: 200;
+	text-align: center;
+}
