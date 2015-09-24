@@ -35,7 +35,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Estación Meteorológica Campus Puebla</a>
+	      <a class="navbar-brand" href="index.html">Estación Meteorológica Campus Puebla</a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -52,159 +52,203 @@
 	
 	<div class="container">
 		<!-- Page Header -->
-		<div class="row">
+		<div class="row" id="pageheader">
 			<div class="col-lg-9">
 				<h1 class="page-header">Condiciones actuales 
 					<small>Actualizado cada 10 minutos</small>
             </h1>
          </div>
-     	</div>
-	<!-- Projects Row -->
-	<div class="row">
-      <div class="col-md-9 portfolio-item">
-          <div class="row" style=" margin-top: 20px;">
-				 <div class="col-md-3 portfolio-item">
-					 <div class=" cubitos" style="background-color: #3592c6;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo" title="Hora"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="" style="font-size: 25px;">hrs</span>
+     	</div> <!-- listo pageheader-->
+		
+		<!-- fila de cuadritos y tabla -->
+		<div class="col-md-12">
+			<div class="row">
+      		<div class="col-md-9 portfolio-item">
+          		<div class="row" style=" margin-top: 20px;">
+				 		<div class="col-md-3 portfolio-item" id="hora">
+				 			<div class=" cubitos" style="background-color: #3592c6;">
+					 			<div class="row">
+							 		<div class="col-sm-12">
+						 		 		<span class="" id="demo" title="Hora"></span>
+							 		</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<span class="" style="font-size: 25px;">hrs</span>
+									</div>
+									<div class="col-sm-6">
+										<img class="img-responsive" src="iconos/Hora.png">
+									</div>
+								</div>
+				 			</div>
+					</div> <!-- listo hora -->
+				 		<div class="col-md-3 portfolio-item" id="temperatura">
+					 		<div class=" cubitos" style="background-color: red;">
+						 		<div class="row">
+							 		<div class="col-sm-12">
+						 		 		<span class="" id="demo1" title="Temperatura ambiente"></span>
+							 		</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<span class="">C&deg;</span>
+									</div>
+									<div class="col-sm-6">
+										<img class="img-responsive" src="iconos/Temperatura.png">
+									</div>
+								</div>
+							</div> 
+						</div> <!-- listo temperatura -->
+				 		<div class="col-md-3 portfolio-item" id="humedad">
+					 	<div class=" cubitos" style="background-color: green;">
+						 	<div class="row">
+							 	<div class="col-sm-12">
+						 		 	<span class="" id="demo2" title="Humedad relativa"></span>
+							 	</div>
 							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/Hora.png"></img>
+							<div class="row">
+								<div class="col-sm-6">
+									<span class="">%</span>
+								</div>
+								<div class="col-sm-6">
+									<img class="img-responsive" src="iconos/Humedad.png">
+								</div>
 							</div>
-						</div>
-					 </div>
-				 </div>
-				 <div class="col-md-3 portfolio-item">
-					 <div class=" cubitos" style="background-color: red;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo1" title="Temperatura ambiente"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="">C&deg;</span>
+					 	</div>
+				 	</div> <!-- listo humedad-->
+				 		<div class="col-md-3 portfolio-item" id="precipitacion">
+					 	<div class=" cubitos" style="background-color: purple;">
+						 	<div class="row">
+							 	<div class="col-sm-12">
+						 		 	<span class="" id="demo6" title="Precipitaci&oacute;n acumulada"></span>
+							 	</div>
 							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/Temperatura.png"></img>
+							<div class="row">
+								<div class="col-sm-6">
+									<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">mm</span>
+								</div>
+								<div class="col-sm-6">
+									<img class="img-responsive" src="iconos/Precipitacion.png">
+								</div>
 							</div>
-						</div>
-					 </div>
-				 </div>
-				 <div class="col-md-3 portfolio-item">
-					 <div class=" cubitos" style="background-color: green;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo2" title="Humedad relativa"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="">%</span>
+					 	</div>
+				 	</div> <!-- listo precipitacion-->
+			 		</div>
+         		<div class="row">
+				 		<div class="col-md-3 portfolio-item" id="rocio">
+					 	<div class=" cubitos" style="background-color: black;">
+						 	<div class="row">
+							 	<div class="col-sm-12">
+						 		 	<span class="" id="demo3" title="Punto roc&iacute;o"></span>
+							 	</div>
 							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/Humedad.png"></img>
+							<div class="row">
+								<div class="col-sm-6">
+									<span class="">C&deg;</span>
+								</div>
+								<div class="col-sm-6">
+									<img class="img-responsive" src="iconos/Rocio.png"/>
+								</div>
 							</div>
-						</div>
-					 </div>
-				 </div>
-				 <div class="col-md-3 portfolio-item">
-					 <div class=" cubitos" style="background-color: purple;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo6" title="Precipitaci&oacute;n acumulada"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">mm</span>
+					 	</div>
+				 	</div> <!-- listo rocio-->
+				 		<div class="col-md-3 portfolio-item" id="presionatmo">
+					 	<div class=" cubitos" style="background-color: orange;">
+						 	<div class="row">
+							 	<div class="col-sm-12">
+						 		 	<span class="" id="demo4" title="Presion atmosf&eacute;rica"></span>
+							 	</div>
 							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/Precipitacion.png"></img>
+							<div class="row">
+								<div class="col-sm-6">
+									<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">mmHg</span>
+								</div>
+								<div class="col-sm-6">
+									<img class="img-responsive" src="iconos/PresionAtmosferica.png"/>
+								</div>
 							</div>
-						</div>
-					 </div>
-				 </div> 
-			 </div>
-          <div class="row">
-				 <div class="col-md-3 portfolio-item cubitos">
-					 <div class=" cubitos" style="background-color: black;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo3" title="Punto roc&iacute;o"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="">C&deg;</span>
+					 	</div>
+				 	</div> <!-- listo presionatmo-->
+				 		<div class="col-md-3 portfolio-item" id="raciacion">
+					 	<div class=" cubitos" style="background-color: brown;">
+						 	<div class="row">
+							 	<div class="col-sm-12">
+						 		 	<span class="" id="demo5" title="Radiaci&oacute;n solar"></span>
+							 	</div>
 							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/Rocio.png"></img>
+							<div class="row">
+								<div class="col-sm-6">
+									<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">w/m<sup>2</sup></span>
+								</div>
+								<div class="col-sm-6">
+									<img class="img-responsive" src="iconos/RadiacionSolar.png"/>
+								</div>
 							</div>
-						</div>
-					 </div>
-				 </div>
-				 <div class="col-md-3 portfolio-item">
-					 <div class=" cubitos" style="background-color: orange;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo4" title="Presion atmosf&eacute;rica"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">mmHg</span>
+					 	</div>
+				 	</div> <!-- listo radiacion-->
+				 		<div class="col-md-3 portfolio-item" id="evaporacion">
+					 	<div class="cubitos" style="background-color: #FE72C4;">
+						 	<div class="row">
+							 	<div class="col-sm-12">
+						 		 	<span class="" id="demo7" title="Evaporaci&oacute;n acumulada"></span>
+							 	</div>
 							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/PresionAtmosferica.png"></img>
+							<div class="row">
+								<div class="col-sm-6">
+									<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">mm</span>
+								</div>
+								<div class="col-sm-6">
+									<img class="img-responsive" src="iconos/Evaporacion.png"/>
+								</div>
 							</div>
-						</div>
-					 </div>
-				 </div>
-				 <div class="col-md-3 portfolio-item">
-					 <div class=" cubitos" style="background-color: brown;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo5" title="Radiaci&oacute;n solar"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">w/m<sup>2</sup></span>
-							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/RadiacionSolar.png"></img>
-							</div>
-						</div>
-					 </div>
-				 </div>
-				 <div class="col-md-3 portfolio-item">
-					 <div class="cubitos" style="background-color: #FE72C4;">
-						 <div class="row">
-							 <div class="col-sm-12">
-						 		 <span class="" id="demo7" title="Evaporaci&oacute;n acumulada"></span>
-							 </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<span class="" style="font-size: 25px;padding-top: 15px;padding-bottom: 15px;">mm</span>
-							</div>
-							<div class="col-sm-6">
-								<img class="img-responsive" src="iconos/Evaporacion.png"></img>
-							</div>
-						</div>
-					 </div>
-				 </div> 
-			 </div>
-		</div>
-	</div>
-	  <!-- /.row -->
+					 	</div>
+				 	</div> <!-- listo evaporacion-->
+					</div>
+				</div> <!-- columna de cuadraditos-->
+				<div class="col-md-3 portfolio-item" id="tabla">
+					<table class="table table-striped table-hover" style=" height: 338px; overflow: auto;">
+					  <thead>
+					    <tr>
+					      <th>#</th>
+					      <th>Feed</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr class="info">
+					      <td>1</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					    </tr>
+					    <tr class="success">
+					      <td>2</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					    </tr>
+					    <tr class="danger">
+					      <td>3</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					    </tr>
+					    <tr class="warning">
+					      <td>4</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					    </tr>
+					    <tr class="active">
+					      <td>5</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					      <td>Column content</td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div> <!-- columna de tabla-->
+			</div>
+		</div><!-- fin de fila de cuadritos y tabla -->
 	</div>
     
 	
