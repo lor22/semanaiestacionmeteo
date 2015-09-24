@@ -86,6 +86,7 @@ sub {
 }
 img {
   border: 0;
+  align: middle;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -1084,7 +1085,8 @@ html {
 }
 body {
   font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 15px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
@@ -4690,7 +4692,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #fff;
-  background-color: #080808;
+  background-color: #4ab8dc;
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
