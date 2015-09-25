@@ -60,7 +60,7 @@
 		 
 		<div class="row">
 		 	<div class="col-md-12">
- 			  	<iframe src="https://player.vimeo.com/video/140022562" width="100%" height="400px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+ 			  	<iframe src="https://player.vimeo.com/video/140399419?byline=0&portrait=0" width="100%" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		 	</div>
 	 	</div>
 		 
@@ -70,21 +70,21 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="panel panel-primary">
-							<div class="panel-heading">
+							<div class="panel-heading" id="multi" style="cursor: pointer;">
 								<h3 class="panel-title">Multisensor Vaisala&reg;</h3>
 							</div>
-							<div class="panel-body">
-								<p style="text-align: justify;">Este multisensor permite calcular varios de los componentes clim&aacute;ticos como lo son la temperatura ambiente, el viento, la radiación solar, entre otros. Por medio de alta tecnoogía, el multisensor cuenta con un Data Logger que permite almacenar la información adecuada.</p>
+							<div class="panel-body" id="multibody" style="display: none;">
+								<p style="text-align: justify;">Este multisensor permite calcular varios de los componentes clim&aacute;ticos como lo son la temperatura ambiente, el viento, la radiación solar, entre otros. Por medio de alta tecnolog&iacute;a, el multisensor cuenta con un Data Logger que permite almacenar la información adecuada.</p>
 							</div>
 						</div>
 					</div>
 					
 					<div class="col-md-4">
 						<div class="panel panel-default">
-							<div class="panel-heading">
+							<div class="panel-heading" id="tempamb" style="cursor: pointer;">
 								<h3 class="panel-title">Temperatura ambiente</h3>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" id="tempambbody" style="display: none;">
 								<p style="text-align: justify;">La medida de temperatura ambiente es muy importante para el d&iacute;a a d&iacute;a. El ser humano se beneficia al saber este tipo de dato, sobretodo en la región donde habita.
 							</div>
 						</div>
@@ -92,18 +92,18 @@
 					
 					<div class="col-md-4">
 						<div class="panel panel-danger">
-							<div class="panel-heading">
+							<div class="panel-heading" id="dirvient" style="cursor: pointer;">
 								<h3 class="panel-title">Direcci&oacute;n del viento</h3>
 							</div>
-							<div class="panel-body">
-								<p style="text-align: justify;">Por medio del campo electromagn&eacute;tico que se genera en las tres antenas, el multisensor es capaz de capturar la dirección del viento, medida en grados gracias a la dirección del norte magnético previamente establecido.</p>
+							<div class="panel-body" id="dirvientbody" style="display: none;">
+								<p style="text-align: justify;">Por medio del campo electromagn&eacute;tico que se genera en las tres antenas, el multisensor es capaz de capturar la direcci&oacute;n del viento, medida en grados en relaci&oacute;n a la direcci&oacute;n del norte magn&eacute;tico previamente establecido.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<blockquote>
 				  <p>Es tiempo de darle m&aacute;s importancia a la estaci&oacute;n meteorol&oacute;gica del campus. Gracias a la <span class="text-primary">Semana i</span>, lo logramos.</p>
-				  <small>Profesor Romeo Bans acerca de <cite title="semana i">Semana i</cite></small>
+				  <small>Equipo estaci&oacute;n meteorol&oacute;gica acerca de la<cite title="semana i">Semana i</cite></small>
 				</blockquote>
 			</div>
 			<div class="col-md-4">
@@ -131,7 +131,7 @@
        <footer>
            <div class="row">
                <div class="col-lg-12">
-                   <p>Instituto Tecnol&oacute;gico y de Estudios Superiores de Monterrey Campus Puebla 2015</p>
+                   <p style="font-size: 12px;">Instituto Tecnol&oacute;gico y de Estudios Superiores de Monterrey Campus Puebla 2015&copy;</p>
                </div>
            </div>
            <!-- /.row -->
@@ -146,6 +146,20 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+	 
+	 <script>
+	$(document).ready(function(){
+		$("#multi").click(function(){
+			$("#multibody").toggle("slow");
+		});
+		$("#tempamb").click(function(){
+			$("#tempambbody").toggle("slow");
+		});
+		$("#dirvient").click(function(){
+			$("#dirvientbody").toggle("slow");
+		});
+	});
+	 </script>
 	 
 </body>
 
