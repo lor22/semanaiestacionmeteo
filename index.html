@@ -16,7 +16,6 @@
     <!-- Custom CSS -->
     <link href="css/2-col-portfolio.css" rel="stylesheet">
 	 <link href="js/jquery-ui.css" rel="stylesheet">
-	 <script type='text/javascript' src='datejs/date.js'></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -255,22 +254,39 @@
 		<!-- fin de fila de cuadritos y tabla -->
 		
 		<div class="row" id="logs">
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<h2 class="page-header">Registro completo</h2>
-				<ul class="list-group">
+				<!-- ><ul class="list-group">
 				  <li class="list-group-item">
 				    <span class="badge" data-toggle="modal" data-target="#hola" style="cursor: pointer;">info</span>
-				    Medición del día: <span id="diademedicion"></span>
+				     Todas las mediciones por día
 				  </li>
-				  <li class="list-group-item">
-				    <span class="badge">2</span>
-				    Dapibus ac facilisis in
-				  </li>
-				  <li class="list-group-item">
-				    <span class="badge">1</span>
-				    Morbi leo risus
-				  </li>
-				</ul>
+				</ul> -->
+					<div class="panel panel-default">
+					  <div class="panel-body">
+ 					  	<div class="form-group">
+							<fieldset>
+ 							<label for="select" class="col-md-4 control-label">Seleccione: (L1aaMMdd)</label>
+ 							<div class="col-md-8">
+ 								<select multiple="" class="form-control" id="selection">
+				            
+ 					          </select>
+ 							 </div>
+							 </fieldset>
+ 						 </div>	 
+					  </div>
+					 <div class="panel-footer">
+						 <button type="button" class="btn btn-primary"><a id="desc" style="color: white;" href="" target="_blank">Descargar</a></button>
+					 </div>
+					</div>
+						
+					 
+			</div>
+			<div class="col-md-6">
+				<h2 class="page-header">D&iacute;a anterior entre las 9:00 y 21:00 horas</h2>
+				<div style="background-color: black;">
+					<span class="inlinesparkline" id="sparkline"></span>
+				</div>
 			</div>
 		</div>
 		
@@ -279,15 +295,24 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		        <h4 class="modal-title">Resumen del d&iacute;a</h4>
+		        <h4 class="modal-title">Registro meteorol&oacute;gico diario</h4>
 		      </div>
 		      <div class="modal-body">
-		        <p>una tabla con los logs</p>
+					<fieldset>
+				  	<div class="form-group">
+						<label for="select" class="col-lg-2 control-label">Seleccione: (L1aaMMdd)</label>
+						<div class="col-lg-10">
+							<select multiple="" class="form-control" id="selection">
+				            
+				          </select>
+						 </div>
+					 </div>
+					 </fieldset>
 		      </div>
 		      <div class="modal-footer">
-					<p style="float: left;">Para descargar: click derecho y "Save link as"</p>
+					<p style="float: left; font-size: 10px;">* Safari, para descargar: click derecho y "Save link as"</p>
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary"><a style="color: white;"href="L1testcomplete.csv" target="_blank">Descargar</a></button>
+		        <button type="button" class="btn btn-primary"><a id="desc" style="color: white;" href="" target="_blank">Descargar</a></button>
 		      </div>
 		    </div>
 		  </div>
@@ -312,8 +337,11 @@
 	 
 	 <script src="js/jquery-ui.js"></script>
 	 
-    
+	 <script src="js/jquery.sparkline.js"></script>
 	 
+	 <script type='text/javascript' src='datejs/es-MX.js'></script>
+	 <script type='text/javascript' src='datejs/core.js'></script>
+	 <script type='text/javascript' src='datejs/parser.js'></script>
 	 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -321,6 +349,8 @@
 	 <script>
 	 $(document).ready(function(){
 		 
+		 
+		/*function for loading the data of every 10 minutes*/
 		function loadIt(){
 			xmlhttp=new XMLHttpRequest();
 		 	xmlhttp.open("GET","L1testcomplete.csv",true);
@@ -335,16 +365,78 @@
   		 var d = new Date();
   		 document.getElementById("demo").innerHTML = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
 		}
+		
+		function loadIt2(){
+			xmlhttp=new XMLHttpRequest();
+		 	xmlhttp.open("GET","mediciones/L1150916.csv",true);
+		 	xmlhttp.send();
+		 	xmlhttp.onreadystatechange=function()
+		 	{
+		 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		 		{
+		 			processDayBeforeData(xmlhttp.responseText);
+		 		}
+		 	}
+		}
+		
 		loadIt();
+		loadIt2();
 		setInterval(function(){
-		    loadIt() // this will run after every 5 seconds
-		}, 5000);
+			loadIt(); // this will run after every 5 seconds
+		}, 10000);
 	 	
+		function processDayBeforeData(allText){
+	     	var allTextLines = allText.split(/\r\n|\n/);
+	     	var headers = allTextLines[0].split(',');
+	     	var lines = [];
+	     	for (var i=1; i<allTextLines.length; i++) {
+	         	var data = allTextLines[i].split(',');
+	         	if (data.length == headers.length) {
+	 				var tarr = [];
+	             for (var j=0; j<headers.length; j++) {
+	 					tarr.push(data[j]);
+	             }
+	             lines.push(tarr);
+	         	}
+	 		  	//alert(lines[i]);
+	    }
+		 var hod = [];
+		 hod[0] = lines[10][2];
+		 hod[1] = lines[11][2];
+		 hod[2] = lines[12][2];
+		 hod[3] = lines[13][2];
+		 hod[4] = lines[14][2];
+		 hod[5] = lines[15][2];
+		 hod[6] = lines[16][2];
+		 hod[7] = lines[17][2];
+		 hod[8] = lines[18][2];
+		 hod[9] = lines[19][2];
+		 hod[10] = lines[20][2];
+		 hod[11] = lines[21][2];
+		 
+		 $("#sparkline").sparkline([hod[0],hod[1],hod[2],hod[3],hod[4],hod[5],hod[6],hod[7],hod[8],hod[9],hod[10],hod[11]], {
+		     type: 'line',
+		     width: '100% ',
+		     height: 'auto ',
+		     lineColor: '#ffffff',
+		     fillColor: '#000000',
+		     spotColor: '#7f0000',
+		     minSpotColor: '#ff0000',
+		     maxSpotColor: '#f08000 ',
+		     highlightLineColor: '#ffffff',
+			 lineWidth: 3,
+		     spotRadius: 5,
+		     chartRangeMin: 0,
+		     chartRangeMax: 30,
+		     chartRangeMinX: 0,
+		     chartRangeMaxX: undefined,
+		     drawNormalOnTop: true});
+		}
+		
 	 	function processData(allText) {
 	     	var allTextLines = allText.split(/\r\n|\n/);
 	     	var headers = allTextLines[0].split(',');
 	     	var lines = [];
-			console.log(allText);
 	     	for (var i=1; i<allTextLines.length; i++) {
 	         	var data = allTextLines[i].split(',');
 	         	if (data.length == headers.length) {
@@ -377,6 +469,25 @@
 	  $("#demo6").tooltip();
 	  $("#demo7").tooltip();
    });
+	
+	var dir = "mediciones/";
+	var fileextension = ".csv";
+	$.ajax({
+	    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+	    url: dir,
+	    success: function (data) {
+	        //Lsit all png file names in the page
+	        $(data).find("a:contains(" + fileextension + ")").each(function () {
+	            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+	            $("#selection").append($("<option>" + filename.substr(21) + "</option>"));
+	        });
+	    }
+	});
+	
+	$("#desc").click(function(){
+		var u = $("#selection option:selected").val();
+		$(this).attr("href", "mediciones/"+u);
+	});
 	 
 	 });
 	 </script>

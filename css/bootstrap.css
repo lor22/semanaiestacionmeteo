@@ -1084,9 +1084,9 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-family: "Source Sans Pro", Helvetica, Calibri, Candara, Arial, sans-serif;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
@@ -1341,7 +1341,8 @@ mark,
   color: #777;
 }
 .text-primary {
-  color: #337ab7;
+	font-weight: bold;
+  color: #3592c6;
 }
 a.text-primary:hover,
 a.text-primary:focus {
