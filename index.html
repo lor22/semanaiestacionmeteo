@@ -270,7 +270,7 @@
 					  <div class="panel-body">
  					  	<div class="form-group">
 							<fieldset>
- 							<label for="select" class="col-md-4 control-label">Seleccione: (L1aaMMdd)</label>
+ 							<p for="select" class="col-md-4 control-label">Seleccione un archivo para descargar (L1aaMMdd)</p>
  							<div class="col-md-8">
  								<select multiple="" class="form-control" id="selection">
 				            
@@ -292,7 +292,7 @@
 						</div>
 		</div>
 		
-		<div class="modal" id="hola">
+		<!-- <div class="modal" id="hola">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -318,7 +318,7 @@
 		      </div>
 		    </div>
 		  </div>
-		</div>
+		</div> -->
 		
 		<!-- Footer -->
      <footer>
@@ -341,17 +341,41 @@
 	 
 	 <script src="js/jquery.sparkline.js"></script>
 	 
-	 <script type='text/javascript' src='datejs/es-MX.js'></script>
-	 <script type='text/javascript' src='datejs/core.js'></script>
-	 <script type='text/javascript' src='datejs/parser.js'></script>
+	 <script type='text/javascript' src='Datejs-master/src/globalization/es-MX.js'></script>
+    <script type='text/javascript' src='Datejs-master/src/core.js'></script>
+    <script type='text/javascript' src='Datejs-master/src/sugarpak.js'></script>
+    <script type='text/javascript' src='Datejs-master/src/parser.js'></script>
 	 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 	 
 	 <script>
 	 $(document).ready(function(){
+		 /* date function for getting the last day's file */
+		 var today = Date.today().addDays(-1);
+		 var todayStr = today.toDateString().toString();
+		 var day = todayStr.substring(8,10);
+		 var month = Date.getMonthNumberFromName(todayStr.substring(4,7));
+		 month = getM(month);
+		 var year = todayStr.substring(13);
+		 function getM(m){
+			 var month2 = parseInt(m);
+			 month2 += 1;
+			 if(month2 < 10){
+				 month2 = month2.toString();
+				 month2 = "0"+month2;
+			 }
+			 return month2;
+		 }
 		 
-		 loadIt();
+		 //console.log("L1" + year + "" + month + "" + day + ".csv"); //this is the string to put in the last day's .csv
+		 
+		 /* end function for getting the last day's file */
+		 
+		 
+		 
+		 loadIt(); //call this function to load when the page starts and not every 10 seconds
+		 
 		/*function for loading the data of every 10 minutes*/
 		function loadIt(){
 			xmlhttp=new XMLHttpRequest();
@@ -383,6 +407,8 @@
 		
 		
 		loadIt2();
+		
+		/* interval for loading the updated values of the color squares */
 		setInterval(function(){
 			loadIt(); // this will run after every 5 seconds
 		}, 10000);
