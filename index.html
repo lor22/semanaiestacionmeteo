@@ -511,15 +511,15 @@
 	    success: function (data) {
 	        //Lsit all png file names in the page
 	        $(data).find("a:contains(" + fileextension + ")").each(function () {
-	            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-	            $("#selection").append($("<option>" + filename.substr(21) + "</option>"));
+	            var filename = this.href.replace(window.location.href, "").replace("http:///", "");
+	            $("#selection").append($("<option>" + filename + "</option>"));
 	        });
 	    }
 	});
 	
 	$("#desc").click(function(){
 		var u = $("#selection option:selected").val();
-		$(this).attr("href", "mediciones/"+u);
+		$(this).attr("href", dir+u);
 	});
 	 
 	 });
