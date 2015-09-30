@@ -252,7 +252,7 @@
             },
             // Defaults for line charts
             line: {
-                spotColor: '#f80',
+                spotColor: '',
                 highlightSpotColor: '#5f5',
                 highlightLineColor: '#f22',
                 spotRadius: 1.5,

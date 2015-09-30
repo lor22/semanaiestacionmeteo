@@ -26,6 +26,7 @@
 </head>
 
 <body>
+
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	  <div class="container">
 	    <div class="navbar-header">
@@ -206,52 +207,9 @@
 				</div> <!-- columna de cuadraditos-->
 				
 				<div class="col-md-3 portfolio-item" id="tabla">
-					
-					
-					<table class="table table-striped table-hover" style=" height: 338px; overflow: auto;">
-										  <thead>
-										    <tr>
-										      <th>#</th>
-										      <th>Feed</th>
-										      <th></th>
-										      <th></th>
-										    </tr>
-										  </thead>
-										  <tbody>
-										    <tr class="info">
-										      <td>1</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										    </tr>
-										    <tr class="success">
-										      <td>2</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										    </tr>
-										    <tr class="danger">
-										      <td>3</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										    </tr>
-										    <tr class="warning">
-										      <td>4</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										    </tr>
-										    <tr class="active">
-										      <td>5</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										      <td>Column content</td>
-										    </tr>
-										  </tbody>
-										</table>
-					
-					
+
+						
+
 				</div> <!-- columna de tabla-->
 				
 			</div><!-- fin row -->
@@ -288,9 +246,24 @@
 			</div>
 			<div class="col-md-6">
 							<h3 class="page-header">Temperatura del d&iacute;a anterior entre las 9:00 y 21:00 horas</h3>
-							<div style="background-color: black;">
-								<span class="inlinesparkline" id="sparkline"></span>
-							</div>
+								<div style="background-color: black;">
+									<span class="inlinesparkline" id="sparkline"></span>
+								</div>
+								<div class="row">
+									<div class="col-sm-3">
+										<div class="badge" style="margin-left: 22%;">09:00</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="badge" style="margin-left: 33%;">13:00</div>
+									</div>
+									<div class="col-md-3">
+										<div class="badge" style="margin-left: 39%;">17:00</div>
+									</div>
+									<div class="col-md-3">
+										<div class="badge" style="margin-left: 45%;">21:00</div>
+									</div>
+								</div>
+								
 						</div>
 		</div>
 		
@@ -352,8 +325,16 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 	 
+	 
+	 
 	 <script>
 	 $(document).ready(function(){
+		 
+		 $(document).ready(function()
+		 {
+		   $(".circulitos").css("border-radius", "50%");
+		 });
+		 
 		 /* date function for getting the last day's file */
 		 var today = Date.today().addDays(-1);
 		 var todayStr = today.toDateString().toString();
@@ -444,25 +425,26 @@
 		 hod[9] = lines[19][2];
 		 hod[10] = lines[20][2];
 		 hod[11] = lines[21][2];
+		 hod[12] = lines[22][2];
 		 
-		 $("#sparkline").sparkline([hod[0],hod[1],hod[2],hod[3],hod[4],hod[5],hod[6],hod[7],hod[8],hod[9],hod[10],hod[11]], {
+		 $("#sparkline").sparkline([hod[0],hod[1],hod[2],hod[3],hod[4],hod[5],hod[6],hod[7],hod[8],hod[9],hod[10],hod[11],hod[12]], {
 		     type: 'line',
 		     width: '100%',
-		     height: '100%',
+		     height: '',
 		     lineColor: '#ffffff',
 		     fillColor: '#000000',
-		     spotColor: 'red',
-		     minSpotColor: '#FE72C4',
+		     spotColor: '',
+		     minSpotColor: 'white',
 		     maxSpotColor: 'red',
 		     highlightLineColor: '#ffffff',
-			 highlightSpotColor: 'green',
+			 highlightSpotColor: '',
 			 lineWidth: 3,
 		     spotRadius: 7,
 		     chartRangeMin: undefined,
 		     chartRangeMax: undefined,
 		     chartRangeMinX: undefined,
 		     chartRangeMaxX: undefined,
-			 valueSpots: {'10:14': 'white', '14:16': 'blue', '16:17': 'orange', '17:18': 'red'},
+			 valueSpots: {':14': 'white', '14:15': '#99EBFF', '15:16': '#417B8E', '16:17': 'yellow', '17:18': 'orange', '18:19': '#FF6666', '19:': 'red'},
 		     drawNormalOnTop: false});
 		}
 		
@@ -524,6 +506,7 @@
 	 
 	 });
 	 </script>
+	 
 	 
 </body>
 
