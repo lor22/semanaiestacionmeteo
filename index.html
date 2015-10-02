@@ -330,11 +330,6 @@
 	 <script>
 	 $(document).ready(function(){
 		 
-		 $(document).ready(function()
-		 {
-		   $(".circulitos").css("border-radius", "50%");
-		 });
-		 
 		 /* date function for getting the last day's file */
 		 var today = Date.today().addDays(-1);
 		 var todayStr = today.toDateString().toString();
@@ -352,7 +347,7 @@
 			 return month2;
 		 }
 		 
-		 //console.log("L1" + year + "" + month + "" + day + ".csv"); //this is the string to put in the last day's .csv
+		 
 		 
 		 /* end function for getting the last day's file */
 		 
@@ -376,9 +371,9 @@
   		 document.getElementById("demo").innerHTML = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
 		}
 		
-		function loadIt2(){
+		function loadIt2(y,m,d){
 			xmlhttp=new XMLHttpRequest();
-		 	xmlhttp.open("GET","mediciones/L1150916.csv",true);
+		 	xmlhttp.open("GET","mediciones/L1" + year + "" + month + "" + day + ".csv" ,true);
 		 	xmlhttp.send();
 		 	xmlhttp.onreadystatechange=function()
 		 	{
@@ -390,7 +385,6 @@
 		}
 		
 		
-		loadIt2();
 		
 		/* interval for loading the updated values of the color squares */
 		setInterval(function(){
@@ -485,6 +479,10 @@
 	  $("#demo7").tooltip();
    });
 	
+ loadIt2(year,month,day);
+ console.log("L1" + year + "" + month + "" + day + ".csv"); //this is the string to put in the last day's .csv
+	
+	/* downloadable files function*/
 	var dir = "mediciones/";
 	var fileextension = ".csv";
 	$.ajax({
@@ -503,7 +501,7 @@
 		var u = $("#selection option:selected").val();
 		$(this).attr("href", dir+u);
 	});
-	 
+	 /* end of downloadable files function */
 	 });
 	 </script>
 	 
