@@ -1,0 +1,4 @@
+temperatura
+humedad relativa
+punto del rocio
+radiación solar
