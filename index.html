@@ -357,8 +357,9 @@
 		 
 		/*function for loading the data of every 10 minutes*/
 		function loadIt(){
+			var url = 'http://metereoprueba.comxa.com/newfile.txt';
 			xmlhttp=new XMLHttpRequest();
-		 	xmlhttp.open("GET","text.txt",true);
+		 	xmlhttp.open("GET",url,true);
 		 	xmlhttp.send();
 		 	xmlhttp.onreadystatechange=function()
 		 	{
